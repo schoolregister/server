@@ -26,6 +26,8 @@ module.exports = function geoQuerystring(coords, qs){
 	// if a query string is passed, mix it in
 	if(qs)
 		q.filtered.query = { query_string: { query: qs } };
+	else
+		q.filtered.query = { match_all: {} };
 
 	return backend
 		.schoolQuery(q);

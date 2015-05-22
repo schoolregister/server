@@ -44,6 +44,7 @@ app.get('/ping', function(conn){
 var geo = require('./src/geo')
 app.get('/schools/geo', function(conn){
 	var bb = conn.params.geobb || '90,4,-90,7';
+	var bb = conn.params.geobb || '90,0,-90,180';
 	var coordinates = bb.split(',').map(parseFloat);
 	return geo(coordinates, conn.params.qs || undefined)
 		// .anchors()
